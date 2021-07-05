@@ -14,13 +14,13 @@ cur_dir=$(pwd)
 if [[ -f /etc/redhat-release ]]; then
     release="centos"
 elif cat /etc/issue | grep -Eqi "raspbian"; then
-    release="debian"
+    release="raspbian"
 elif cat /etc/issue | grep -Eqi "ubuntu"; then
     release="ubuntu"
 elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
 elif cat /proc/version | grep -Eqi "raspbian"; then
-    release="debian"
+    release="raspbian"
 elif cat /proc/version | grep -Eqi "ubuntu"; then
     release="ubuntu"
 elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
@@ -67,7 +67,7 @@ elif [[ x"${release}" == x"ubuntu" ]]; then
     fi
 elif [[ x"${release}" == x"raspbian" ]]; then
     if [[ ${os_version} -lt 8 ]]; then
-        echo -e "${red}请使用 Debian 8 或更高版本的系统！${plain}\n" && exit 1
+        echo -e "${red}请使用 raspbian 8 或更高版本的系统！${plain}\n" && exit 1
     fi
 fi
 
